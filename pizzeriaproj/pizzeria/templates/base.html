@@ -25,7 +25,10 @@
         <div class="navbar-header">
           <a class="navbar-brand" href="{% url 'index' %}">Pizzeria</a>
         </div>
-        <ul class="nav navbar-nav"></ul>
+        <ul class="nav navbar-nav">
+          <li><a href="{% url 'types' %}">Pizza Types</a></li>
+          <li><a href="{% url 'pizzas' %}">Pizzas</a></li>
+        </ul>
       </div>
     </nav>
     <p>&nbsp;</p>
