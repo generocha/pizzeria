@@ -1,0 +1,12 @@
+{% extends 'base.html' %} {% block content %}
+<h2>{{ pizz.pizzaname }}</h2>
+<img src="..{{ pizz.pizzaimage.url }}" style="height: 100px;" />
+<p>Product Type: {{ pizz.pizzatype }}</p>
+<p>Added by: {{ pizz.user }}</p>
+<p>Entry Date: {{ pizz.pizzaentrydate }}</p>
+<p>URL: {{ pizz.pizzaurl }}</p>
+<p>Description: {{ pizz.pizzadescription }}</p>
+<p>Price: {{ pizz.pizzaprice }}</p>
+<p>Member discount: {{ discount }}</p>
+
+{% endblock %}
