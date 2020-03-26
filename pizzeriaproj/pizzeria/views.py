@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404
 from django.core.files.storage import FileSystemStorage
 from .models import PizzaType, Pizza
 from .forms import PizzaForm, PizzaTypeForm
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
@@ -30,6 +31,7 @@ def pizzadetails(request, id):
     return render(request, 'pizzeria/pizzdetails.html', context=context)
 
 
+@login_required
 def newPizza(request):
     form = PizzaForm
     if request.method == 'POST':
@@ -43,6 +45,7 @@ def newPizza(request):
     return render(request, 'pizzeria/newpizza.html', {'form': form})
 
 
+@login_required
 def newPizzaType(request):
     form = PizzaTypeForm
     if request.method == 'POST':
@@ -56,6 +59,15 @@ def newPizzaType(request):
     return render(request, 'pizzeria/newpizzatype.html', {'form': form})
 
 
+def loginmessage(request):
+    return render(request, 'pizzeria/loginmessage.html')
+
+
+def logoutmessage(request):
+    return render(request, 'pizzeria/logoutmessage.html')
+
+
+@login_required
 def upload(request):
     if request.method == 'POST':
         uploaded_file = request.FILES['image']
