@@ -11,6 +11,8 @@ urlpatterns = [
     path('pizzadetails/<int:id>', views.pizzadetails, name='pizzadetails'),
     path('newPizza/', views.newPizza, name='newpizza'),
     path('newPizzaType/', views.newPizzaType, name='newpizzatype'),
+    path('loginmessage/', views.loginmessage, name='loginmessage'),
+    path('logoutmessage/', views.logoutmessage, name='logoutmessage'),
 ]
 
 if settings.DEBUG:
