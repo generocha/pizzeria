@@ -1,6 +1,6 @@
 {% extends 'base.html' %} {% block content %}
-<h2>Add Pizza</h2>
-<form method="POST" class="post-form" enctype="multipart/form-data">
+<h2>Add Pizza Type</h2>
+<form method="POST" class="post-form">
   <table class="table">
     {% csrf_token %} {{ form.as_table }}
   </table>
