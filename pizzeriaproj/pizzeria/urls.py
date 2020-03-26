@@ -10,6 +10,7 @@ urlpatterns = [
     path('getpizzas/', views.getpizzas, name='pizzas'),
     path('pizzadetails/<int:id>', views.pizzadetails, name='pizzadetails'),
     path('newPizza/', views.newPizza, name='newpizza'),
+    path('newPizzaType/', views.newPizzaType, name='newpizzatype'),
 ]
 
 if settings.DEBUG:

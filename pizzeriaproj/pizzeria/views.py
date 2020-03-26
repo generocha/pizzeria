@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.core.files.storage import FileSystemStorage
 from .models import PizzaType, Pizza
-from .forms import PizzaForm
+from .forms import PizzaForm, PizzaTypeForm
 
 # Create your views here.
 
@@ -33,7 +33,7 @@ def pizzadetails(request, id):
 def newPizza(request):
     form = PizzaForm
     if request.method == 'POST':
-        form = PizzaForm(request.POST)
+        form = PizzaForm(request.POST, request.FILES)
         if form.is_valid():
             post = form.save(commit=True)
             post.save()
@@ -41,6 +41,19 @@ def newPizza(request):
     else:
         form = PizzaForm()
     return render(request, 'pizzeria/newpizza.html', {'form': form})
+
+
+def newPizzaType(request):
+    form = PizzaTypeForm
+    if request.method == 'POST':
+        form = PizzaTypeForm(request.POST)
+        if form.is_valid():
+            post = form.save(commit=True)
+            post.save()
+            form = PizzaTypeForm()
+    else:
+        form = PizzaTypeForm()
+    return render(request, 'pizzeria/newpizzatype.html', {'form': form})
 
 
 def upload(request):
